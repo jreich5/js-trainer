@@ -15,10 +15,6 @@ describe('DrillHelper', () => {
             }
         })
         it ('should throw an error if passed a non-number', () => {
-            // assert.equal(DrillHelper.getRand('bob'), undefined, 'should return undefined when passed a string');
-            // assert.equal(DrillHelper.getRand(0, 'bob'), undefined, 'should return undefined when passed a number and a string');
-            // assert.equal(DrillHelper.getRand('bob', 0), undefined, 'should return undefined when passed a number and a string');
-            // assert.notStrictEqual(DrillHelper.getRand('10'), undefined, 'should return a random number if passed a numeric string');
             expect(() => DrillHelper.getRand('bob')).to.throw();
             expect(() => DrillHelper.getRand('bob', 0)).to.throw();
             expect(() => DrillHelper.getRand(0, 'bob')).to.throw();
