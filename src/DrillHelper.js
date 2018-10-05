@@ -1,7 +1,7 @@
 const faker = require('faker');
 
 /*
-    number getRand(min, max)
+    - number getRand(min, max)
     mixed getRandArrayValue(array)
     string getRandOperator(type)
     mixed getRandValue(type)
@@ -47,22 +47,21 @@ export default class DrillHelper {
         throw new Error("Arguments must be numeric");
     }
 
+    // mixed getRandArrayValue(arr)
     /** @function
-     * Returns a random mathmatical expression
-     * @name getExpression
+     * Returns a random value from an array
+     * @name getRandArrayValue
      * @static
-     * @param {number=} max 
-     * @param {number=} min 
-     * @returns {number}
+     * @param {array} arr
+     * @returns {mixed}
      */
-    static getRand(max = 0, min = 0) {
-        if (+max < +min) {
-            throw new Error("Max value cannot be more than min value");
+    static getRandArrayValue(arr) {
+        var max = (arr.length > 0) ? arr.length : 1;
+        if (Array.isArray(arr)) {
+            return arr[DrillHelper.getRand(max - 1)];
+        } else {
+            throw new Error("Not an array");
         }
-        if (!isNaN(parseFloat(min)) && isFinite(min) && !isNaN(parseFloat(max)) && isFinite(max)) {
-            return Math.floor(Math.random() * (+max + 1 - +min)) + +min;
-        }
-        throw new Error("Arguments must be numeric");
     }
     
 }
